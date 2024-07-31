@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siqi Xiao's Portfolio</title>
+<link rel="icon" href="images/about/lefu.png" type="image/png">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+  .pronounce {
+    margin-top: -18px;
+    font-size: 0.5rem;
+  }
+  .intro-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f8f9fa;
+  }
+  .intro-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 30px;
+  }
+  .intro-section .content {
+    max-width: 500px;
+  }
+  .intro-section .greeting {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .intro-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .intro-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  .btn-group a {
+    margin: 5px;
+  }
+  .social-icon {
+    width: 30px;
+    margin: 5px;
+  }
+
+  .about-section {
+    text-align: center;
+    padding: 50px 0;
+  }
+  .about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  .about-section img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .about-section p {
+    color: #333;
+  }
+
+
+.projects-section h2 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+.card {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.card-img-top {
+  max-height: 180px;
+  object-fit: cover;
+}
+.card-equal-height {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    /* new */
+.card-equal-height img {
+  width: 100%;
+  height: auto;
+}
+.hover-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      text-align: center;
+    }
+.hover-content a {
+  color: white;
+  margin: 0 10px;
+}
+.hover-content p {
+      color: white;
+      font-size: 0.8em;
+      font-weight: bold;
+      margin: 0 20px;
+    }
+.card-equal-height:hover .hover-content {
+    opacity: 1;
+  }
+  /* new */
+.card-body {
+  padding: 15px;
+  flex: 1;
+}
+.card-title {
+  font-size: 1.25rem;
+}
+.card-text {
+  margin-bottom: 15px;
+}
+
+/* Additional CSS for Skills Section */
+.skills-section h2 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+.skills-section .card {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.skills-section .card-img-top {
+  padding: 20px;
+  background-color: #f8f9fa;
+  height: 180px;
+  object-fit: contain;
+}
+.skills-section .card-body {
+  padding: 15px;
+}
+.skills-section .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+}
+.skills-section .btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+}
+.skills-section .btn-outline-primary:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+
+.chat-window {
+      background-color: #f8f9fa;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 40px auto;
+      color: black;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-message {
+      display: flex;
+      align-items: flex-end;
+      margin: 10px 0;
+      transition: transform 0.2s ease;
+      position: relative;
+    }
+
+    .chat-message-left {
+      justify-content: flex-start;
+    }
+
+    .chat-message-right {
+      justify-content: flex-start;
+    }
+
+    .chat-bubble-left {
+      background: #e5e5ea;
+      color: black;
+      padding: 10px 15px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 80%;
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      position: relative;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow: hidden;
+    }
+
+    .chat-bubble-right {
+      background: #007aff;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 80%;
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      position: relative;
+      margin-left: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .chat-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .typing-indicator {
+      display: none;
+      background: #e5e5ea;
+      color: black;
+      padding: 8px 20px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 80%;
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      position: relative;
+      animation: blink-caret 1s steps(1, start) infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+      from, to { background: #e5e5ea; }
+      50% { background: #ccccd5; }
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+.contact-section {
+  padding: 50px 0;
+}
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+.contact-section p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.social-icon {
+  width: 30px;
+  margin-bottom: 10px;
+}
+
+.social-icon:hover {
+  opacity: 0.7;
+}
+
+.contact-section a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.contact-section a:hover {
+  color: #ddd;
+}
+
+.navbar {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+body {
+  padding-top: 56px;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f8f9fa;
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background-color: #343a40;
+  }
+}
+
+
+</style>
+
+</head>
+<body>
+<!-- Greeting Section -->
+<section id='greet' class="intro-section">
+  <div class="container">
+    <div class="greeting">Hello, I'm</div>
+    <h1>Siqi Xiao</h1>
+    <p class="pronounce">Pronounce: C-Chy (like Peachy🍑)</p>
+    <p></p>
+    <h3>Welcome to my portfolio!</h3>
+    <div class="btn-group">
+      <a href="files/Siqi_Xiao_resume _fullversion.pdf" class="btn btn-outline-dark" target="_blank">Download CV</a>
+      <a href="#contact" class="btn btn-dark">Contact Info</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- About Section -->
+<section id='about' class="about-section">
+  <div class="container">
+    <h2>About</h2>
+    <img src="images/about/1.jpg" alt="About Me">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h4>Education:</h4>
+      </div>
+      <div class="col-md-6 offset-md-3">
+        <ul class="list-unstyled ">
+          <li><strong>M.S. at the University of Southern California 📚</strong></li>
+          <li>Major: Applied Data Science</li>
+          <li><strong>B.S. at Shanghai Jiao Tong University 🎓</strong></li>
+          <li>Major: Electrical and Computer Engineering</li>
+          <li>Minors: Data Science, Entrepreneurship</li>
+        </ul>
+      </div>
+    </div>
+
+      <div class="col-md-6 offset-md-3">
+        <ul class="list-unstyled text-center">
+          <li><h4>Hobbies:</h4></li>
+          <ul class="list-unstyled">
+            <li>Music: Guitar, Choir, A cappella 🎵</li>
+            <li>Sports: Tennis, Gym, Pilates 🎾</li>
+          </ul>
+        </ul>
+      </div>
+      <div class="col-md-6 offset-md-3">
+        <ul class="list-unstyled text-center">
+          <li><h4>Three Good Sides of Me:</h4></li>
+          <ul class="list-unstyled">
+            <li>Am a doer who define things with high accuracy 🎯</li>
+            <li>Enjoy trying out innovative solutions and keep a growth mindset 💡</li>
+            <li>Believe in the compound effect. Always engage in continuous effort 📈</li>
+          </ul>
+        </ul>
+      </div>
+  </div>
+</section>
+
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section bg-light" id="projects">
+  <div class="container">
+    <h2 class="text-center">Projects</h2>
+    <div class="row">
+
+
+      <!-- Project 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card card-equal-height">
+          <img src="images/projects/metaSwin.png" class="card-img-top" alt="Project 3">
+          <div class="hover-content">
+            <a href="files/projects/MetaSwin/METASwin.pdf" class="btn btn-primary">Paper</a>
+            <a href="https://github.com/Xiao-Siqi/MetaSwin.git" class="btn btn-secondary">Code</a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">MetaSwin: A Meta Information-Aware Network for Fine-Grained Visual Classification</h5>
+            <p class="font-weight-bold">
+              Key words: Computer Vision, Deep Learning, Neural Network, FGVC
+            </p>
+            <p class="card-text">METASwin enhances Fine-Grained Visual Classification (FGVC) by integrating meta-information (e.g., longitude, latitude, time, descriptions) with visual data using a Swin Transformer. This approach improves classification accuracy by approximately 1.7% compared to SOTA that only uses visual information.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Project 4: Application of Deep Learning in Diagnosis and Treatment of Periapical Diseases -->
+      <div class="col-md-4 mb-4">
+        <div class="card card-equal-height">
+          <img src="images/projects/dental.png" class="card-img-top" alt="Project 4">
+          <div class="hover-content">
+            <p>Due to confidentiality agreements, code or detailed documentation cannot be shared. Thank you for your understanding.</p>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Application of Deep Learning in Diagnosis and Treatment of Periapical Diseases</h5>
+            <p class="font-weight-bold">
+              Key words: Machine Learning, Self-supervised Learning, Medical Image
+            </p>
+            <p class="card-text">This model is of 94.7% accuracy in classifying Apical Periodontitis (AP) grades, aiding clinical diagnosis by predicting the di-PAI index for doctors.</p>
+            <p class="card-text">The model was first pre-trained on four public datasets using self-supervised learning techniques and then fine-tuned with over 860 digital periapical films collected from clinics.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Project 5: chip evaluating system -->
+      <div class="col-md-4 mb-4">
+        <div class="card card-equal-height">
+          <img src="images/projects/chipvatar.png" class="card-img-top" alt="Project 5">
+          <div class="hover-content">
+            <a href="https://youtu.be/hLVmF-Uxwtk" class="btn btn-primary">Video</a>
+            <a href="https://github.com/chipvatar/united_system.git" class="btn btn-secondary">Code</a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Evaluation of Chip Computing Power for Multi-domain Integrated Automotive Applications</h5>
+            <p class="font-weight-bold">
+              Key words: System-on-Chip(SoC), Chip evaluation,  Integrated system
+            </p>
+            <p class="card-text">A chip evaluating system with a standardized evaluation metrics and a user-friendly GUI, fitting the real industrial needs.</p>
+            <p class="card-text">The metrics includes arithmetic calculation performance, memory access speed, input/output bandwidth, and latency, as weighed sub-scores.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Bigfoot -->
+      <div class="col-md-4 mb-4">
+        <div class="card card-equal-height">
+          <img src="images/projects/bigfoot.png" class="card-img-top" alt="Project 2">
+          <div class="hover-content">
+            <a href="files/projects/bigfoot_analysis/bigfoot_analysis.pdf" class="btn btn-secondary">Report</a>
+            <a href="https://xiao-siqi.github.io/bigfootanalysis/" class="btn btn-primary">Website</a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">GenAI-Driven Analysis on Bigfoot Research Organization Database</h5>
+            <p class="font-weight-bold">
+              Key words: Generative AI, NLP, Big Data
+            </p>
+            <p class="card-text">Based on 5469 bigfoot sighting reports combined with multi-disciplinary data, the analysis unveils the sighting trends over centuries and provides hypothesis on elusive creature's sightings.</p>
+            <p class="card-text">NER, object recognition, feature extraction, image and caption regeneration were conducted for analysis purpose.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Project 1: LA Restaurant -->
+      <div class="col-md-4 mb-4">
+        <div class="card card-equal-height">
+          <img src="images/projects/restaurant.png" class="card-img-top" alt="Project 1">
+          <div class="hover-content">
+            <a href="https://www.youtube.com/watch?v=RzsHBvvbB48" class="btn btn-primary">Demo</a>
+            <a href="files/projects/la_restaurant_info_sys/LA_restaurant_info_system.pdf" class="btn btn-secondary">Design</a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Los Angeles Restaurant Information System</h5>
+            <p class="font-weight-bold">
+              Key words: Database, Informatics
+            </p>
+            <p class="card-text">The LA Restaurant Information System provides detailed information on various restaurants in LA, including reviews, ratings, and menus.</p>
+            <p class="card-text">It is hash-based and is built on firebase, featuring real-time updates and multiple searching methods.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="chat" class="chat-window text-left">
+  <div class="chat-message chat-message-left" id="leftMessage">
+    <img src="images/about/1.jpg" alt="Persona" class="chat-image">
+    <div class="chat-bubble-left typing" id="leftBubble">Changing the world using tech is cool! Let's get connected and I'll tell you more about me.</div>
+  </div>
+  <div class="chat-message chat-message-right" id="typingIndicator">
+    <div class="chat-bubble-right typing-indicator">...</div>
+  </div>
+</section>
+
+
+
+<section id="contact" class="contact-section text-center text-white bg-dark">
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-3 mb-4">
+        <img src="icons/email.png" alt="Email" class="social-icon">
+        <a href="mailto:siqix1122@outlook.com" class="text-white">siqix1122@outlook.com</a>
+      </div>
+      <div class="col-lg-3 mb-4">
+        <img src="icons/phone.png" alt="Phone" class="social-icon">
+        608-515-0956
+      </div>
+      <div class="col-lg-3 mb-4">
+        <a href="https://www.linkedin.com/in/siqix/" target="_blank">
+          <img src="icons/linkedin.png" alt="LinkedIn" class="social-icon">
+          LinkedIn
+        </a>
+      </div>
+      <div class="col-lg-3 mb-4">
+        <a href="https://github.com/Xiao-Siqi" target="_blank">
+          <img src="icons/github.png" alt="GitHub" class="social-icon">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Sticky Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">Siqi's Portfolio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Initially hide the typing indicator
+  document.getElementById('typingIndicator').style.display = 'none';
+  // Show the typing indicator briefly and then hide it before the left chat has been finished
+  setTimeout(function() {
+    document.getElementById('typingIndicator').style.display = 'flex';
+  }, 1500); // Show the typing indicator after 1500ms
+
+
+  setTimeout(function() {
+
+     const leftBubble = document.getElementById('leftBubble');
+      leftBubble.classList.remove('typing');
+      leftBubble.style.animation = 'none';
+      leftBubble.classList.remove('chat-bubble-left');
+      leftBubble.classList.add('chat-bubble-right');
+      leftBubble.style.backgroundColor = '#007aff';
+      leftBubble.style.color = 'white';
+      leftBubble.style.borderRight = 'none';
+
+      // Move the left message upward
+      document.getElementById('leftMessage').style.transform = 'translateY(-30px)';
+    }, 800);
+</script>
+</body>
+</html>
